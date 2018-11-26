@@ -12,14 +12,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <version>2.1.0.RELEASE</version>
         <relativePath />
     </parent>
 
     <properties>
         <rabbbit.version>5.5.0</rabbbit.version>
-        <jakcson.version>2.9.7</jakcson.version>
         <spring-data-dynamodb.version>5.0.3</spring-data-dynamodb.version>
+        <feign.version>10.1.0</feign.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -43,15 +43,27 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.derjust</groupId>
-            <artifactId>spring-data-dynamodb</artifactId>
-            <version>${spring-data-dynamodb.version}</version>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>${feign.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jakcson.version}</version>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-slf4j</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.derjust</groupId>
+            <artifactId>spring-data-dynamodb</artifactId>
+            <version>${spring-data-dynamodb.version}</version>
         </dependency>
 
         <dependency>
