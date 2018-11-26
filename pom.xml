@@ -17,6 +17,8 @@
     </parent>
 
     <properties>
+        <project.build.encoding>UTF-8</project.build.encoding>
+        <project.build.java>1.8</project.build.java>
         <rabbbit.version>5.5.0</rabbbit.version>
         <spring-data-dynamodb.version>5.0.3</spring-data-dynamodb.version>
         <feign.version>10.1.0</feign.version>
@@ -157,15 +159,13 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>${project.build.java}</source>
+                    <target>${project.build.java}</target>
+                    <encoding>${project.build.encoding}</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>
