@@ -11,5 +11,14 @@
 
     <artifactId>repository</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

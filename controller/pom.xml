@@ -11,5 +11,14 @@
 
     <artifactId>controller</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

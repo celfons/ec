@@ -8,8 +8,6 @@ services:
     image: bitnami/rabbitmq:latest
     ports:
       - "15672:15672"
-    volumes:
-      - "./plugins:/etc/rabbitmq/plugins"
   stubby4j:
     image: sandokandias/stubby4j-docker
     ports:
