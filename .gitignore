@@ -37,3 +37,14 @@ data/
 application-local.properties
 
 plugins/
+api/src/
+consumer/src/
+controller/src/main/java/br/com/vr/controllers/
+controller/src/main/resources/logback.xml
+controller/src/test/
+domain/src/
+infra/src/
+integration/src/
+producer/src/
+repository/src/
+service/src/

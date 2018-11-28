@@ -11,14 +11,5 @@
 
     <artifactId>controller</artifactId>
 
-    <dependencies>
-
-        <dependency>
-            <groupId>vr</groupId>
-            <artifactId>api</artifactId>
-        </dependency>
-
-    </dependencies>
-
 
 </project>
