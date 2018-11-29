@@ -25,6 +25,12 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>integration</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

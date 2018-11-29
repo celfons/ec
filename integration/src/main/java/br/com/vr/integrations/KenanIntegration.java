@@ -8,7 +8,9 @@ import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class KenanIntegration implements KenanService {
 
     @Value("${url.kenan}")
