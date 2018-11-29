@@ -11,5 +11,14 @@
 
     <artifactId>producer</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

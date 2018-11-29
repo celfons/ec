@@ -4,6 +4,8 @@ import br.com.vr.domains.commands.UnlockCardCommand;
 import br.com.vr.domains.events.UnlockedCardEvent;
 import br.com.vr.domains.shared.AggregateRoot;
 import br.com.vr.domains.shared.Event;
+import br.com.vr.services.KenanService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +36,9 @@ public class CommercialStore extends AggregateRoot {
         apply(unlockedCardEvent);
     }
 
-    public void unlockCard(UnlockCardCommand unlockCardCommand){
+    public void unlockCard(UnlockCardCommand unlockCardCommand, KenanService kenanService){
         this.card.setUnlocked(true);
+        kenanService.unlockCard("true");
         unlockedCard(
                 new UnlockedCardEvent(
                         unlockCardCommand.getCommercialStoreId()

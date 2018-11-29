@@ -25,6 +25,12 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>producer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
