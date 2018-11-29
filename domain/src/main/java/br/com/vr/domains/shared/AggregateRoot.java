@@ -9,7 +9,7 @@ public abstract class AggregateRoot<ID> {
 
     private List<Event> events = new ArrayList<>();
 
-    protected void register(Event event) {
+    protected void apply(Event event) {
         events.add(event);
     }
 
