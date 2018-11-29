@@ -10,11 +10,13 @@ import java.util.List;
 public class CommercialStore extends AggregateRoot {
 
     private CommercialStoreId commercialStoreId;
+    private Card card;
 
     private List<Event> events = new ArrayList<>();
 
-    protected CommercialStore(CommercialStoreId commercialStoreId) {
+    protected CommercialStore(CommercialStoreId commercialStoreId, Card card) {
         super(commercialStoreId);
+        this.card = card;
     }
 
     @Override
@@ -33,6 +35,7 @@ public class CommercialStore extends AggregateRoot {
     }
 
     public void unlockCard(UnlockCardCommand unlockCardCommand){
+        this.card.setUnlocked(true);
         unlockedCard(
                 new UnlockedCardEvent(
                         unlockCardCommand.getCommercialStoreId()

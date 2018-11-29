@@ -13,4 +13,31 @@ public class Card {
 
     @DynamoDBAttribute
     private Integer number;
+
+    @DynamoDBAttribute
+    private Boolean unlocked;
+
+    public String getId() {
+        return id;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public Boolean getUnlocked() {
+        return unlocked;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public void setUnlocked(Boolean unlocked) {
+        this.unlocked = unlocked;
+    }
 }
