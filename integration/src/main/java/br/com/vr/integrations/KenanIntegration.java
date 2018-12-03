@@ -24,7 +24,7 @@ public class KenanIntegration implements KenanService {
             .target(Kenan.class, urlKenan);
 
     @Override
-    public void unlockCard(String value){
+    public void unlockCard(Boolean value){
         kenan.unlockCard(value);
     }
 

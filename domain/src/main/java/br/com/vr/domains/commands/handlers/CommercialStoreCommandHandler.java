@@ -1,6 +1,6 @@
 package br.com.vr.domains.commands.handlers;
 
-import br.com.vr.domains.CommercialStore;
+import br.com.vr.domains.PurchaseCard;
 import br.com.vr.domains.commands.UnlockCardCommand;
 import br.com.vr.domains.shared.CommandHandler;
 import br.com.vr.repositories.DynamoRepository;
@@ -27,9 +27,9 @@ public class CommercialStoreCommandHandler implements CommandHandler {
 
     public void handler(UnlockCardCommand unlockCardCommand){
         LOGGER.info("handler!!!");
-        CommercialStore commercialStore = repository.findById(unlockCardCommand.getCommercialStoreId()).get();
-        commercialStore.unlockCard(unlockCardCommand, kenanService);
-        repository.save(commercialStore);
+        PurchaseCard purchaseCard = repository.findById(unlockCardCommand.getPurchaseCardId()).get();
+        purchaseCard.unlockCard(unlockCardCommand, kenanService);
+        repository.save(purchaseCard);
         LOGGER.info("unlockedCard!!!");
     }
 

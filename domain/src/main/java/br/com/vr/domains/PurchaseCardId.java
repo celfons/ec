@@ -2,13 +2,13 @@ package br.com.vr.domains;
 
 import br.com.vr.domains.shared.RandomUUID;
 
-public class CommercialStoreId extends RandomUUID {
+public class PurchaseCardId extends RandomUUID {
 
-    public CommercialStoreId() {
+    public PurchaseCardId() {
         super();
     }
 
-    public CommercialStoreId(String id) {
+    public PurchaseCardId(String id) {
         super(id);
     }
 

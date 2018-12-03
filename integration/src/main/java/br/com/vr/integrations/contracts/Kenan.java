@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Kenan {
     @RequestLine("GET /kenan/{value}")
-    List<String> unlockCard(@Param("value") String value);
+    List<String> unlockCard(@Param("value") Boolean value);
 }

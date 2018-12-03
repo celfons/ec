@@ -1,7 +1,9 @@
 package br.com.vr.controllers;
 
 import br.com.vr.apis.CommercialStoreApi;
-import br.com.vr.domains.CommercialStoreId;
+import br.com.vr.apis.requests.UnlockCardRequest;
+import br.com.vr.domains.PurchaseCardId;
+import br.com.vr.domains.UnlockCard;
 import br.com.vr.domains.commands.UnlockCardCommand;
 import br.com.vr.domains.commands.handlers.CommercialStoreCommandHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,16 @@ public class CommercialStoreController implements CommercialStoreApi {
             value = "/api",
             method = RequestMethod.POST
     )
-    public void unlockCard(@RequestBody @Valid String request) {
-        CommercialStoreId commercialStoreId = new CommercialStoreId(request);
-        UnlockCardCommand unlockCardCommand = new UnlockCardCommand(commercialStoreId);
+    public void unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest) {
+        UnlockCardCommand unlockCardCommand = unlockCardCommandBuilder(unlockCardRequest);
         commercialStoreCommandHandler.handler(unlockCardCommand);
     }
+
+    private UnlockCardCommand unlockCardCommandBuilder(UnlockCardRequest unlockCardRequest){
+        return new UnlockCardCommand(
+                new PurchaseCardId(unlockCardRequest.getCardId()),
+                new UnlockCard(unlockCardRequest.getValue())
+        );
+    }
+
 }
