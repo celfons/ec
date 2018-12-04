@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan({"br.com.vr.apis", "br.com.vr.controllers", "br.com.vr.domains", "br.com.vr.integrations", "br.com.vr.repositories"})
+
 public class Main {
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class.getName());

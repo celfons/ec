@@ -11,4 +11,20 @@
 
     <artifactId>service</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
 </project>

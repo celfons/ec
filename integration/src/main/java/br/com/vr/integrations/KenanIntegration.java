@@ -1,7 +1,7 @@
 package br.com.vr.integrations;
 
+import br.com.vr.domains.services.KenanService;
 import br.com.vr.integrations.contracts.Kenan;
-import br.com.vr.services.KenanService;
 import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;

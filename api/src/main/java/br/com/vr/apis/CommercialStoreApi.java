@@ -1,6 +1,7 @@
 package br.com.vr.apis;
 
 import br.com.vr.apis.requests.UnlockCardRequest;
+import br.com.vr.apis.responses.UnlockCardResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -13,6 +14,6 @@ public interface CommercialStoreApi {
             value = "/api",
             method = RequestMethod.POST
     )
-    void unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest);
+    UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest);
 
 }

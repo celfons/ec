@@ -2,13 +2,15 @@ package br.com.vr.domains;
 
 import br.com.vr.domains.commands.UnlockCardCommand;
 import br.com.vr.domains.events.UnlockedCardEvent;
+import br.com.vr.domains.services.KenanService;
 import br.com.vr.domains.shared.AggregateRoot;
 import br.com.vr.domains.shared.Event;
-import br.com.vr.services.KenanService;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@DynamoDBTable(tableName = "PurchaseCard")
 public class PurchaseCard extends AggregateRoot {
 
     private PurchaseCardId purchaseCardId;
@@ -18,6 +20,9 @@ public class PurchaseCard extends AggregateRoot {
     private PurchaseCardType purchaseCardType;
     private Category category;
     private CashBack cashBack;
+    private SecurityDigit securityDigit;
+    private Pat pat;
+    private Expiration expiration;
     private List<Transactions> transactions;
 
     private List<Event> events = new ArrayList<>();
@@ -30,6 +35,9 @@ public class PurchaseCard extends AggregateRoot {
             PurchaseCardType purchaseCardType,
             Category category,
             CashBack cashBack,
+            SecurityDigit securityDigit,
+            Pat pat,
+            Expiration expiration,
             List<Transactions> transactions
     ) {
         super(purchaseCardId);
@@ -39,6 +47,9 @@ public class PurchaseCard extends AggregateRoot {
         this.purchaseCardType = purchaseCardType;
         this.category = category;
         this.cashBack = cashBack;
+        this.securityDigit = securityDigit;
+        this.pat = pat;
+        this.expiration = expiration;
         this.transactions = transactions;
     }
 

@@ -15,7 +15,7 @@
 
         <dependency>
             <groupId>vr</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
 
