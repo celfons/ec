@@ -1,6 +1,6 @@
 package br.com.vr.controllers;
 
-import br.com.vr.apis.CommercialStoreApi;
+import br.com.vr.apis.PurchaseCardApi;
 import br.com.vr.apis.requests.UnlockCardRequest;
 import br.com.vr.apis.responses.UnlockCardResponse;
 import br.com.vr.domains.PurchaseCardId;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-public class CommercialStoreController implements CommercialStoreApi {
+class PurchaseCardController implements PurchaseCardApi {
 
     @Autowired
     private PurchaseCardCommandHandler purchaseCardCommandHandler;

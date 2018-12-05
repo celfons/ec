@@ -3,9 +3,9 @@ package br.com.vr.domains.shared;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AggregateRoot<ID> {
+public abstract class AggregateRoot<Long> {
 
-    private ID id;
+    private Long id;
 
     private List<Event> events = new ArrayList<>();
 
@@ -13,14 +13,14 @@ public abstract class AggregateRoot<ID> {
         events.add(event);
     }
 
-    AggregateRoot() {
+    protected AggregateRoot() {
     }
 
-    protected AggregateRoot(ID id) {
+    protected AggregateRoot(Long id) {
         this.id = id;
     }
 
-    public ID getId() {
+    public Long getId() {
         return id;
     }
 

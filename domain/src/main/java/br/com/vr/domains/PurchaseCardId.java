@@ -8,7 +8,7 @@ public class PurchaseCardId extends RandomUUID {
         super();
     }
 
-    public PurchaseCardId(String id) {
+    public PurchaseCardId(Long id) {
         super(id);
     }
 

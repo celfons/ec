@@ -3,7 +3,7 @@ package br.com.vr.domains.commands;
 import br.com.vr.domains.PurchaseCardId;
 import br.com.vr.domains.UnlockCard;
 
-public class UnlockCardCommand implements CommercialStoreCommands {
+public class UnlockCardCommand implements PurchaseCardCommands {
 
     private PurchaseCardId purchaseCardId;
     private UnlockCard unlockValue;

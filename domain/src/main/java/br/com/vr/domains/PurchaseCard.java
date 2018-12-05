@@ -56,6 +56,10 @@ public class PurchaseCard extends AggregateRoot {
         this.transactions = transactions;
     }
 
+    public PurchaseCard(){
+
+    }
+
     protected void apply(Event event) {
         if (event instanceof UnlockedCardEvent) {
             events.add(event);
@@ -77,7 +81,12 @@ public class PurchaseCard extends AggregateRoot {
         );
     }
 
-    @DynamoDBHashKey(attributeName = "purchaseCardId")
+   @DynamoDBHashKey
+   public Long getId(){
+        return this.getId();
+   }
+
+    @DynamoDBAttribute(attributeName = "purchaseCardId")
     public PurchaseCardId getPurchaseCardId() {
         return purchaseCardId;
     }

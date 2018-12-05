@@ -1,11 +1,14 @@
 package br.com.vr.apis.requests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UnlockCardRequest {
 
-    private String cardId;
-    private Boolean unlockValue;
+    @JsonProperty("cardId") private Long cardId;
 
-    public UnlockCardRequest(Boolean value, String cardId) {
+    @JsonProperty("unlockValue") private Boolean unlockValue;
+
+    public UnlockCardRequest(Boolean value, Long cardId) {
         this.unlockValue = value;
         this.cardId = cardId;
     }
@@ -18,11 +21,12 @@ public class UnlockCardRequest {
         this.unlockValue = value;
     }
 
-    public String getCardId() {
+    public Long getCardId() {
         return cardId;
     }
 
-    public void setCardId(String cardId) {
+    public void setCardId(Long cardId) {
         this.cardId = cardId;
     }
+
 }

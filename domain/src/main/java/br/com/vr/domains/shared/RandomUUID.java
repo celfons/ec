@@ -1,19 +1,18 @@
 package br.com.vr.domains.shared;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.UUID;
 
 public abstract class RandomUUID implements ValueObject<RandomUUID> {
+
     @NotNull
-    @Size(min = 16, max = 50)
-    public final String id;
+    public final Long id;
 
     public RandomUUID() {
-        this.id = String.format(getPrefix(), UUID.randomUUID().toString());
+        this.id = Long.valueOf(UUID.randomUUID().toString());
     }
 
-    public RandomUUID(String id) {
+    public RandomUUID(Long id) {
         this.id = id;
     }
 
