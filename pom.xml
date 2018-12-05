@@ -19,7 +19,6 @@
     <properties>
         <project.build.encoding>UTF-8</project.build.encoding>
         <project.build.java>1.8</project.build.java>
-        <rabbbit.version>5.5.0</rabbbit.version>
         <feign.version>10.1.0</feign.version>
         <spring-data-dynamodb.version>5.0.3</spring-data-dynamodb.version>
         <logstash.version>4.11</logstash.version>
@@ -34,8 +33,6 @@
         <module>infra</module>
         <module>domain</module>
         <module>repository</module>
-        <module>producer</module>
-        <module>consumer</module>
     </modules>
 
     <dependencyManagement>
@@ -45,12 +42,6 @@
             <dependency>
                 <groupId>vr</groupId>
                 <artifactId>api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>vr</groupId>
-                <artifactId>consumer</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -75,12 +66,6 @@
             <dependency>
                 <groupId>vr</groupId>
                 <artifactId>integration</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>vr</groupId>
-                <artifactId>producer</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

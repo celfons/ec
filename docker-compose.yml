@@ -4,10 +4,6 @@ services:
     image: tutum/dynamodb:latest
     ports:
       - "8000:8000"
-  rabbit:
-    image: bitnami/rabbitmq:latest
-    ports:
-      - "15672:15672"
   stubby4j:
     image: sandokandias/stubby4j-docker
     ports:
