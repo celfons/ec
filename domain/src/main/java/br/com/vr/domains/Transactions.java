@@ -1,7 +1,9 @@
 package br.com.vr.domains;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import org.joda.time.DateTime;
 
+@DynamoDBDocument
 public class Transactions {
 
     private Double value;

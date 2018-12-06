@@ -1,5 +1,8 @@
 package br.com.vr.domains;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
+
+@DynamoDBDocument
 public enum PurchaseCardType {
 
     PRODUCT("PRODUCT"),

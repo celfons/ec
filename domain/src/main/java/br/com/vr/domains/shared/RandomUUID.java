@@ -21,5 +21,4 @@ public abstract class RandomUUID implements ValueObject<RandomUUID> {
         return other != null && this.id.equals(other.id);
     }
 
-    protected abstract String getPrefix();
 }

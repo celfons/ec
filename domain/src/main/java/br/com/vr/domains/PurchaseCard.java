@@ -41,6 +41,7 @@ public class PurchaseCard extends AggregateRoot {
             ArrayList<Transactions> transactions
     ) {
         super(purchaseCardId);
+        this.purchaseCardId = purchaseCardId;
         this.unlockCard = unlockCard;
         this.balance = balance;
         this.cnpj = cnpj;
@@ -71,16 +72,16 @@ public class PurchaseCard extends AggregateRoot {
     public void createPurchaseCard() {
         createdPurchaseCard(
                 new CreatedPurchaseCardEvent(
-                this.purchaseCardId,
-                this.unlockCard,
-                this.balance,
-                this.cnpj,
-                this.purchaseCardType,
-                this.category,
-                this.cashBack,
-                this.pat,
-                this.transactions
-            )
+                    this.purchaseCardId,
+                    this.unlockCard,
+                    this.balance,
+                    this.cnpj,
+                    this.purchaseCardType,
+                    this.category,
+                    this.cashBack,
+                    this.pat,
+                    this.transactions
+                )
         );
     }
 
@@ -101,7 +102,7 @@ public class PurchaseCard extends AggregateRoot {
 
    @DynamoDBHashKey
    public Long getId(){
-        return this.getId();
+        return this.purchaseCardId.id;
    }
 
     @DynamoDBAttribute(attributeName = "purchaseCardId")
