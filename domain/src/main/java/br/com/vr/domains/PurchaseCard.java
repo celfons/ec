@@ -23,14 +23,12 @@ public class PurchaseCard extends AggregateRoot {
     private PurchaseCardType purchaseCardType;
     private Category category;
     private CashBack cashBack;
-    private SecurityDigit securityDigit;
     private Pat pat;
-    private Expiration expiration;
-    private List<Transactions> transactions;
+    private ArrayList<Transactions> transactions;
 
     private List<Event> events = new ArrayList<>();
 
-    protected PurchaseCard(
+    public PurchaseCard(
             PurchaseCardId purchaseCardId,
             UnlockCard unlockCard,
             Balance balance,
@@ -38,10 +36,8 @@ public class PurchaseCard extends AggregateRoot {
             PurchaseCardType purchaseCardType,
             Category category,
             CashBack cashBack,
-            SecurityDigit securityDigit,
             Pat pat,
-            Expiration expiration,
-            List<Transactions> transactions
+            ArrayList<Transactions> transactions
     ) {
         super(purchaseCardId);
         this.unlockCard = unlockCard;
@@ -50,9 +46,7 @@ public class PurchaseCard extends AggregateRoot {
         this.purchaseCardType = purchaseCardType;
         this.category = category;
         this.cashBack = cashBack;
-        this.securityDigit = securityDigit;
         this.pat = pat;
-        this.expiration = expiration;
         this.transactions = transactions;
     }
 
@@ -149,15 +143,6 @@ public class PurchaseCard extends AggregateRoot {
         this.cashBack = cashBack;
     }
 
-    @DynamoDBAttribute(attributeName = "securityDigit")
-    public SecurityDigit getSecurityDigit() {
-        return securityDigit;
-    }
-
-    public void setSecurityDigit(SecurityDigit securityDigit) {
-        this.securityDigit = securityDigit;
-    }
-
     @DynamoDBAttribute(attributeName = "pat")
     public Pat getPat() {
         return pat;
@@ -167,21 +152,12 @@ public class PurchaseCard extends AggregateRoot {
         this.pat = pat;
     }
 
-    @DynamoDBAttribute(attributeName = "expiration")
-    public Expiration getExpiration() {
-        return expiration;
-    }
-
-    public void setExpiration(Expiration expiration) {
-        this.expiration = expiration;
-    }
-
     @DynamoDBAttribute(attributeName = "transactions")
-    public List<Transactions> getTransactions() {
+    public ArrayList<Transactions> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(List<Transactions> transactions) {
+    public void setTransactions(ArrayList<Transactions> transactions) {
         this.transactions = transactions;
     }
 

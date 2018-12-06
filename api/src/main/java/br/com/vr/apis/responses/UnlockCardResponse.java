@@ -2,12 +2,12 @@ package br.com.vr.apis.responses;
 
 public class UnlockCardResponse {
 
-    private Long cardId;
+    private Long purchaseCardId;
     private Boolean unlockValue;
 
     public UnlockCardResponse(Boolean value, Long cardId) {
         this.unlockValue = value;
-        this.cardId = cardId;
+        this.purchaseCardId = cardId;
     }
 
     public Boolean getValue() {
@@ -19,11 +19,11 @@ public class UnlockCardResponse {
     }
 
     public Long getCardId() {
-        return cardId;
+        return purchaseCardId;
     }
 
     public void setCardId(Long cardId) {
-        this.cardId = cardId;
+        this.purchaseCardId = cardId;
     }
 
 }

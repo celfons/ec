@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UnlockCardRequest {
 
-    @JsonProperty("cardId") private Long cardId;
+    @JsonProperty("purchaseCardId") private Long purchaseCardId;
 
     @JsonProperty("unlockValue") private Boolean unlockValue;
 
     public UnlockCardRequest(Boolean value, Long cardId) {
         this.unlockValue = value;
-        this.cardId = cardId;
+        this.purchaseCardId = cardId;
     }
 
     public Boolean getValue() {
@@ -22,11 +22,11 @@ public class UnlockCardRequest {
     }
 
     public Long getCardId() {
-        return cardId;
+        return purchaseCardId;
     }
 
     public void setCardId(Long cardId) {
-        this.cardId = cardId;
+        this.purchaseCardId = cardId;
     }
 
 }
