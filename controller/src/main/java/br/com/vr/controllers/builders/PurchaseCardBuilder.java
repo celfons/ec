@@ -1,4 +1,4 @@
-package br.com.vr.builders;
+package br.com.vr.controllers.builders;
 
 import br.com.vr.apis.requests.CreatePurchaseCardRequest;
 import br.com.vr.apis.requests.UnlockCardRequest;
@@ -7,9 +7,11 @@ import br.com.vr.apis.responses.UnlockCardResponse;
 import br.com.vr.domains.*;
 import br.com.vr.domains.commands.CreatePurchaseCardCommand;
 import br.com.vr.domains.commands.UnlockCardCommand;
+import org.springframework.stereotype.Component;
 
 import javax.validation.Valid;
 
+@Component
 public class PurchaseCardBuilder {
 
     public CreatePurchaseCardCommand createPurchaseCardBuilder(CreatePurchaseCardRequest createPurchaseCardRequest){

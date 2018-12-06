@@ -35,8 +35,9 @@ public class PurchaseCardCommandHandler implements CommandHandler {
                 Category.valueOf(Category.class, createPurchaseCardCommand.getCategory()),
                 new CashBack(createPurchaseCardCommand.getCashBack()),
                 new Pat(createPurchaseCardCommand.getPat()),
-                new ArrayList<Transactions>()
+                new ArrayList<>()
         );
+        purchaseCard.createPurchaseCard();
         repository.save(purchaseCard);
         LOGGER.info("Created Purchase Card!");
         return purchaseCard;

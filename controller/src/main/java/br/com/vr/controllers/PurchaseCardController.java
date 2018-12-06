@@ -5,7 +5,7 @@ import br.com.vr.apis.responses.CreatePurchaseCardResponse;
 import br.com.vr.apis.PurchaseCardApi;
 import br.com.vr.apis.requests.UnlockCardRequest;
 import br.com.vr.apis.responses.UnlockCardResponse;
-import br.com.vr.builders.PurchaseCardBuilder;
+import br.com.vr.controllers.builders.PurchaseCardBuilder;
 import br.com.vr.domains.PurchaseCard;
 import br.com.vr.domains.commands.CreatePurchaseCardCommand;
 import br.com.vr.domains.commands.UnlockCardCommand;
@@ -21,6 +21,7 @@ class PurchaseCardController implements PurchaseCardApi {
     @Autowired
     private PurchaseCardCommandHandler purchaseCardCommandHandler;
 
+    @Autowired
     private PurchaseCardBuilder purchaseCardBuilder;
 
     @Override

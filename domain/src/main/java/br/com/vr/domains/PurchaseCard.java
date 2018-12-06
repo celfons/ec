@@ -1,6 +1,7 @@
 package br.com.vr.domains;
 
 import br.com.vr.domains.commands.UnlockCardCommand;
+import br.com.vr.domains.events.CreatedPurchaseCardEvent;
 import br.com.vr.domains.events.UnlockedCardEvent;
 import br.com.vr.domains.services.KenanService;
 import br.com.vr.domains.shared.AggregateRoot;
@@ -58,6 +59,29 @@ public class PurchaseCard extends AggregateRoot {
         if (event instanceof UnlockedCardEvent) {
             events.add(event);
         }
+        else if(event instanceof CreatedPurchaseCardEvent){
+            events.add(event);
+        }
+    }
+
+    private void createdPurchaseCard(CreatedPurchaseCardEvent createdPurchaseCardEvent) {
+        apply(createdPurchaseCardEvent);
+    }
+
+    public void createPurchaseCard() {
+        createdPurchaseCard(
+                new CreatedPurchaseCardEvent(
+                this.purchaseCardId,
+                this.unlockCard,
+                this.balance,
+                this.cnpj,
+                this.purchaseCardType,
+                this.category,
+                this.cashBack,
+                this.pat,
+                this.transactions
+            )
+        );
     }
 
     private void unlockedCard(UnlockedCardEvent unlockedCardEvent){

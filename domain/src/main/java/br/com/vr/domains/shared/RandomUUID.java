@@ -1,7 +1,7 @@
 package br.com.vr.domains.shared;
 
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
+import java.util.Random;
 
 public abstract class RandomUUID implements ValueObject<RandomUUID> {
 
@@ -9,7 +9,7 @@ public abstract class RandomUUID implements ValueObject<RandomUUID> {
     public final Long id;
 
     public RandomUUID() {
-        this.id = Long.valueOf(UUID.randomUUID().toString());
+        this.id =  Math.abs(new Random().nextLong());
     }
 
     public RandomUUID(Long id) {
