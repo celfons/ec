@@ -4,25 +4,25 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import org.joda.time.DateTime;
 
 @DynamoDBDocument
-public class Transactions {
+public class Transaction {
 
-    private Double value;
+    private Balance value;
     private Cnpj cnpj;
     private DateTime dateTransaction;
     private TransactionType transactionType;
 
-    public Transactions(Double value, Cnpj cnpj, DateTime dateTransaction, TransactionType transactionType) {
+    public Transaction(Balance value, Cnpj cnpj, DateTime dateTransaction, TransactionType transactionType) {
         this.value = value;
         this.cnpj = cnpj;
         this.dateTransaction = dateTransaction;
         this.transactionType = transactionType;
     }
 
-    public Double getValue() {
+    public Balance getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(Balance value) {
         this.value = value;
     }
 

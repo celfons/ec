@@ -14,7 +14,7 @@ public class CreatedPurchaseCardEvent implements PurchaseCardEvents {
     private Category category;
     private CashBack cashBack;
     private Pat pat;
-    private ArrayList<Transactions> transactions;
+    private ArrayList<Transaction> transactions;
 
     public CreatedPurchaseCardEvent(
             PurchaseCardId purchaseCardId,
@@ -25,7 +25,7 @@ public class CreatedPurchaseCardEvent implements PurchaseCardEvents {
             Category category,
             CashBack cashBack,
             Pat pat,
-            ArrayList<Transactions> transactions
+            ArrayList<Transaction> transactions
     ) {
         this.purchaseCardId = purchaseCardId;
         this.unlockCard = unlockCard;
@@ -102,11 +102,11 @@ public class CreatedPurchaseCardEvent implements PurchaseCardEvents {
         this.pat = pat;
     }
 
-    public ArrayList<Transactions> getTransactions() {
+    public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(ArrayList<Transactions> transactions) {
+    public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
     }
 }

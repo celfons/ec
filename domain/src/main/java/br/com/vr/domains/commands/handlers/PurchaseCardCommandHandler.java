@@ -7,13 +7,13 @@ import br.com.vr.domains.services.KenanService;
 import br.com.vr.domains.shared.CommandHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-
 @Component
+@EnableScan
 public class PurchaseCardCommandHandler implements CommandHandler {
 
     @Autowired
@@ -28,14 +28,14 @@ public class PurchaseCardCommandHandler implements CommandHandler {
         LOGGER.info("Create Purchase Card!");
         PurchaseCard purchaseCard = new PurchaseCard(
                 new PurchaseCardId(),
-                new UnlockCard(false),
+                new UnlockCard(true),
                 new Balance(0.0),
                 new Cnpj(createPurchaseCardCommand.getCnpj()),
                 PurchaseCardType.valueOf(PurchaseCardType.class, createPurchaseCardCommand.getPurchaseCardType()),
                 Category.valueOf(Category.class, createPurchaseCardCommand.getCategory()),
                 new CashBack(createPurchaseCardCommand.getCashBack()),
                 new Pat(createPurchaseCardCommand.getPat()),
-                new ArrayList<>()
+                null
         );
         purchaseCard.createPurchaseCard();
         repository.save(purchaseCard);

@@ -9,14 +9,12 @@ import br.com.vr.domains.shared.Event;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import org.springframework.data.annotation.Id;
 import java.util.ArrayList;
 import java.util.List;
 
 @DynamoDBTable(tableName = "PurchaseCard")
 public class PurchaseCard extends AggregateRoot {
 
-    @Id
     private PurchaseCardId purchaseCardId;
     private UnlockCard unlockCard;
     private Balance balance;
@@ -25,7 +23,7 @@ public class PurchaseCard extends AggregateRoot {
     private Category category;
     private CashBack cashBack;
     private Pat pat;
-    private ArrayList<Transactions> transactions;
+    private ArrayList<Transaction> transactions;
 
     private List<Event> events = new ArrayList<>();
 
@@ -38,7 +36,7 @@ public class PurchaseCard extends AggregateRoot {
             Category category,
             CashBack cashBack,
             Pat pat,
-            ArrayList<Transactions> transactions
+            ArrayList<Transaction> transactions
     ) {
         super(purchaseCardId);
         this.purchaseCardId = purchaseCardId;
@@ -178,11 +176,11 @@ public class PurchaseCard extends AggregateRoot {
     }
 
     @DynamoDBAttribute(attributeName = "transactions")
-    public ArrayList<Transactions> getTransactions() {
+    public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(ArrayList<Transactions> transactions) {
+    public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
     }
 
