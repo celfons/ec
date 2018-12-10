@@ -57,10 +57,10 @@ public class PurchaseCard extends AggregateRoot {
     }
 
     protected void apply(Event event) {
-        if (event instanceof UnlockedCardEvent) {
+        if(event instanceof CreatedPurchaseCardEvent){
             events.add(event);
         }
-        else if(event instanceof CreatedPurchaseCardEvent){
+        else if (event instanceof UnlockedCardEvent) {
             events.add(event);
         }
     }
