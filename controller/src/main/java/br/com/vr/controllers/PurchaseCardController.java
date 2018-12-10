@@ -32,12 +32,6 @@ class PurchaseCardController implements PurchaseCardApi {
     }
 
     @Override
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    @RequestMapping(
-            value = "/api",
-            method = RequestMethod.POST
-    )
     public UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest) {
         UnlockCardCommand unlockCardCommand = purchaseCardBuilder.unlockCardCommandBuilder(unlockCardRequest);
         PurchaseCard purchaseCard = purchaseCardCommandHandler.handler(unlockCardCommand);

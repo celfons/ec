@@ -43,7 +43,7 @@ public class PurchaseCardCommandHandler implements CommandHandler {
         return purchaseCard;
     }
 
-    public PurchaseCard  handler(UnlockCardCommand unlockCardCommand){
+    public PurchaseCard handler(UnlockCardCommand unlockCardCommand){
         LOGGER.info("Unlock Purchase Card!");
         PurchaseCard purchaseCard = repository.findById(unlockCardCommand.getPurchaseCardId()).get();
         purchaseCard.unlockCard(unlockCardCommand, kenanService);

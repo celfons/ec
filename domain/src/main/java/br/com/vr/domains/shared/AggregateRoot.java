@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class AggregateRoot<Long> {
 
-    private Long id;
+    protected Long id;
 
     private List<Event> events = new ArrayList<>();
 

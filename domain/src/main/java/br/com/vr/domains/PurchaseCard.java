@@ -98,12 +98,11 @@ public class PurchaseCard extends AggregateRoot {
         );
     }
 
-   @DynamoDBHashKey
-   public Long getId(){
-        return this.purchaseCardId.id;
-   }
+    @DynamoDBHashKey
+    public Long getId() {
+        return purchaseCardId.id;
+    }
 
-    @DynamoDBAttribute(attributeName = "purchaseCardId")
     public PurchaseCardId getPurchaseCardId() {
         return purchaseCardId;
     }
