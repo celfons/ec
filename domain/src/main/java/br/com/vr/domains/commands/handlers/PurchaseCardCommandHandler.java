@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class PurchaseCardCommandHandler implements CommandHandler {
 
@@ -33,6 +35,7 @@ public class PurchaseCardCommandHandler implements CommandHandler {
                 .pat(createPurchaseCardCommand.getPat())
                 .unlockCard(true)
                 .balance(0.0)
+                .transactions(new ArrayList<>())
                 .build();
         purchaseCard.createPurchaseCard();
         repository.save(purchaseCard);

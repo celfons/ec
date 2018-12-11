@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 @Builder
 public class CreatePurchaseCardResponse {
 
+    private String purchaseCardId;
     private String cnpj;
     private String purchaseCardType;
     private String category;

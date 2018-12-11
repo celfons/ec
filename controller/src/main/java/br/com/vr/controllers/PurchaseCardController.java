@@ -34,6 +34,7 @@ class PurchaseCardController implements PurchaseCardApi {
         PurchaseCard purchaseCard = purchaseCardCommandHandler.handler(createPurchaseCardCommand);
         return CreatePurchaseCardResponse
                 .builder()
+                .purchaseCardId(purchaseCard.getPurchaseCardId())
                 .cnpj(purchaseCard.getCnpj())
                 .purchaseCardType(purchaseCard.getPurchaseCardType())
                 .cashBack(purchaseCard.getCashBack())
