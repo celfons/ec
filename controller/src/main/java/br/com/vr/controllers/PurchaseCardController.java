@@ -43,7 +43,7 @@ class PurchaseCardController implements PurchaseCardApi {
     }
 
     @Override
-    public UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest) throws Exception {
+    public UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest) {
         UnlockCardCommand unlockCardCommand = UnlockCardCommand
                 .builder()
                 .purchaseCardId(unlockCardRequest.getPurchaseCardId())

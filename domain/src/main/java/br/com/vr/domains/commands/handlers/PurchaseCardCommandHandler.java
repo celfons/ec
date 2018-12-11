@@ -40,10 +40,10 @@ public class PurchaseCardCommandHandler implements CommandHandler {
         return purchaseCard;
     }
 
-    public PurchaseCard handler(UnlockCardCommand unlockCardCommand) throws Exception {
+    public PurchaseCard handler(UnlockCardCommand unlockCardCommand) {
         final PurchaseCard purchaseCard;
         LOGGER.info("Unlock Purchase Card!");
-        purchaseCard = repository.findById(unlockCardCommand.getPurchaseCardId()).orElseThrow(Exception::new);
+        purchaseCard = repository.findById(unlockCardCommand.getPurchaseCardId()).get();
         purchaseCard.unlockCard(unlockCardCommand, kenanService);
         repository.save(purchaseCard);
         LOGGER.info("Unlocked Purchase Card!");
