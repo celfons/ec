@@ -1,11 +1,10 @@
-package br.com.vr.repositories;
+package br.com.vr.domains.repository;
 
 import br.com.vr.domains.PurchaseCard;
-import br.com.vr.domains.PurchaseCardId;
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
 
 @EnableScan
-public interface PurchaseCardRepository extends CrudRepository<PurchaseCard, PurchaseCardId> {
+public interface PurchaseCardRepository extends CrudRepository<PurchaseCard, String> {
 
 }

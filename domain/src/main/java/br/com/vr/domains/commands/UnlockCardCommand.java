@@ -1,31 +1,15 @@
 package br.com.vr.domains.commands;
 
-import br.com.vr.domains.PurchaseCardId;
-import br.com.vr.domains.UnlockCard;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
 
+@Getter
+@AllArgsConstructor
+@Builder
 public class UnlockCardCommand implements PurchaseCardCommands {
 
-    private PurchaseCardId purchaseCardId;
-    private UnlockCard unlockValue;
+    private String purchaseCardId;
+    private Boolean unlockValue;
 
-    public UnlockCardCommand(PurchaseCardId purchaseCardId, UnlockCard unlockValue) {
-        this.purchaseCardId = purchaseCardId;
-        this.unlockValue = unlockValue;
-    }
-
-    public PurchaseCardId getPurchaseCardId() {
-        return purchaseCardId;
-    }
-
-    public void setPurchaseCardId(PurchaseCardId purchaseCardId) {
-        this.purchaseCardId = purchaseCardId;
-    }
-
-    public UnlockCard getUnlockValue() {
-        return unlockValue;
-    }
-
-    public void setUnlockValue(UnlockCard unlockValue) {
-        this.unlockValue = unlockValue;
-    }
 }

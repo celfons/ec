@@ -24,6 +24,6 @@ public interface PurchaseCardApi {
             value = "/unlock",
             method = RequestMethod.POST
     )
-    UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest);
+    UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest) throws Exception;
 
 }

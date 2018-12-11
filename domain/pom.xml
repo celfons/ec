@@ -11,4 +11,14 @@
 
     <artifactId>domain</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>infra</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
 </project>

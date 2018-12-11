@@ -1,6 +1,6 @@
 aws dynamodb create-table \
 --table-name PurchaseCard \
 --attribute-definitions \
-AttributeName=id,AttributeType=N \
---key-schema AttributeName=id,KeyType=HASH \
+AttributeName=purchaseCardId,AttributeType=S \
+--key-schema AttributeName=purchaseCardId,KeyType=HASH \
 --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000

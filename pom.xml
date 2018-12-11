@@ -22,6 +22,7 @@
         <feign.version>10.1.0</feign.version>
         <spring-data-dynamodb.version>5.0.3</spring-data-dynamodb.version>
         <logstash.version>4.11</logstash.version>
+        <lombok.version>1.18.4</lombok.version>
         <junit.version>4.12</junit.version>
         <mockito.version>2.23.0</mockito.version>
     </properties>
@@ -114,6 +115,12 @@
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
             <version>${logstash.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>

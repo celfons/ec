@@ -1,15 +1,16 @@
 package br.com.vr.domains.events;
 
-import br.com.vr.domains.PurchaseCardId;
-import br.com.vr.domains.UnlockCard;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+
+@Getter
+@AllArgsConstructor
+@Builder
 public class UnlockedCardEvent implements PurchaseCardEvents {
 
-    private PurchaseCardId purchaseCardId;
-    private UnlockCard unlockCard;
+    private String purchaseCardId;
+    private Boolean unlockCard;
 
-    public UnlockedCardEvent(PurchaseCardId purchaseCardId, UnlockCard unlockCard){
-        this.purchaseCardId = purchaseCardId;
-        this.unlockCard = unlockCard;
-    }
 }
