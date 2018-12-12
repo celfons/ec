@@ -33,6 +33,12 @@
 
         <dependency>
             <groupId>vr</groupId>
+            <artifactId>producers</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>vr</groupId>
             <artifactId>repository</artifactId>
             <version>${project.version}</version>
         </dependency>

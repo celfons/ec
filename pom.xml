@@ -34,6 +34,8 @@
         <module>infra</module>
         <module>domain</module>
         <module>repository</module>
+        <module>producers</module>
+        <module>consumers</module>
     </modules>
 
     <dependencyManagement>
@@ -43,6 +45,12 @@
             <dependency>
                 <groupId>vr</groupId>
                 <artifactId>api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>vr</groupId>
+                <artifactId>consumers</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -72,6 +80,12 @@
 
             <dependency>
                 <groupId>vr</groupId>
+                <artifactId>producers</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>vr</groupId>
                 <artifactId>repository</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -85,6 +99,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
         <dependency>

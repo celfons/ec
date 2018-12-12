@@ -6,6 +6,7 @@ import br.com.vr.domains.commands.ExtractPurchaseCardCommand;
 import br.com.vr.domains.commands.UnlockPurchaseCardCommand;
 import br.com.vr.domains.repository.PurchaseCardRepository;
 import br.com.vr.domains.services.KenanService;
+import br.com.vr.domains.services.RabbitProducerService;
 import br.com.vr.domains.shared.CommandHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +22,9 @@ public class PurchaseCardCommandHandler implements CommandHandler {
 
     @Autowired
     KenanService kenanService;
+
+    @Autowired
+    RabbitProducerService rabbitProducerService;
 
     private static final Logger LOGGER = LogManager.getLogger(PurchaseCardCommandHandler.class.getName());
 
@@ -40,6 +44,7 @@ public class PurchaseCardCommandHandler implements CommandHandler {
                 .build();
         purchaseCard.createPurchaseCard();
         repository.save(purchaseCard);
+        rabbitProducerService.send(purchaseCard.getPurchaseCardId());
         LOGGER.info("Created Purchase Card!");
         return purchaseCard;
     }
