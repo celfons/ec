@@ -2,7 +2,8 @@ package br.com.vr.domains.commands.handlers;
 
 import br.com.vr.domains.*;
 import br.com.vr.domains.commands.CreatePurchaseCardCommand;
-import br.com.vr.domains.commands.UnlockCardCommand;
+import br.com.vr.domains.commands.ExtractPurchaseCardCommand;
+import br.com.vr.domains.commands.UnlockPurchaseCardCommand;
 import br.com.vr.domains.repository.PurchaseCardRepository;
 import br.com.vr.domains.services.KenanService;
 import br.com.vr.domains.shared.CommandHandler;
@@ -10,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 
 @Component
@@ -25,8 +25,9 @@ public class PurchaseCardCommandHandler implements CommandHandler {
     private static final Logger LOGGER = LogManager.getLogger(PurchaseCardCommandHandler.class.getName());
 
     public PurchaseCard handler(CreatePurchaseCardCommand createPurchaseCardCommand) {
+        final PurchaseCard purchaseCard;
         LOGGER.info("Create Purchase Card!");
-        PurchaseCard purchaseCard = PurchaseCard
+        purchaseCard = PurchaseCard
                 .builder()
                 .purchaseCardType(createPurchaseCardCommand.getPurchaseCardType())
                 .cashBack(createPurchaseCardCommand.getCashBack())
@@ -43,14 +44,24 @@ public class PurchaseCardCommandHandler implements CommandHandler {
         return purchaseCard;
     }
 
-    public PurchaseCard handler(UnlockCardCommand unlockCardCommand) {
+    public PurchaseCard handler(UnlockPurchaseCardCommand unlockPurchaseCardCommand) {
         final PurchaseCard purchaseCard;
         LOGGER.info("Unlock Purchase Card!");
-        purchaseCard = repository.findById(unlockCardCommand.getPurchaseCardId()).get();
-        purchaseCard.unlockCard(unlockCardCommand, kenanService);
+        purchaseCard = repository.findById(unlockPurchaseCardCommand.getPurchaseCardId()).get();
+        purchaseCard.unlockPurchaseCard(unlockPurchaseCardCommand, kenanService);
         repository.save(purchaseCard);
         LOGGER.info("Unlocked Purchase Card!");
         return purchaseCard;
     }
 
+    public PurchaseCard handler(ExtractPurchaseCardCommand extractPurchaseCardCommand) {
+        final PurchaseCard purchaseCard;
+        LOGGER.info("Extract Purchase Card!");
+        purchaseCard = repository.findById(extractPurchaseCardCommand.getPurchaseCardId()).orElse(
+                new PurchaseCard()
+        );
+        purchaseCard.extractPurchaseCard(extractPurchaseCardCommand, kenanService);
+        LOGGER.info("Extract Purchase Card!");
+        return purchaseCard;
+    }
 }

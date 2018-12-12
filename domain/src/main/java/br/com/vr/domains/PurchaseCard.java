@@ -1,6 +1,7 @@
 package br.com.vr.domains;
 
-import br.com.vr.domains.commands.UnlockCardCommand;
+import br.com.vr.domains.commands.ExtractPurchaseCardCommand;
+import br.com.vr.domains.commands.UnlockPurchaseCardCommand;
 import br.com.vr.domains.events.CreatedPurchaseCardEvent;
 import br.com.vr.domains.events.UnlockedCardEvent;
 import br.com.vr.domains.services.KenanService;
@@ -34,7 +35,7 @@ public class PurchaseCard extends AggregateRoot {
     private String purchaseCardId;
 
     @Setter
-    @DynamoDBAttribute(attributeName = "unlockCard")
+    @DynamoDBAttribute(attributeName = "unlockPurchaseCard")
     private Boolean unlockCard;
 
     @Setter
@@ -102,19 +103,23 @@ public class PurchaseCard extends AggregateRoot {
         );
     }
 
-    private void unlockedCard(UnlockedCardEvent unlockedCardEvent){
+    private void unlockedPurchaseCard(UnlockedCardEvent unlockedCardEvent){
         apply(unlockedCardEvent);
     }
 
-    public void unlockCard(UnlockCardCommand unlockCardCommand, KenanService kenanService){
-        this.unlockCard = unlockCardCommand.getUnlockValue();
-        kenanService.unlockCard(unlockCardCommand.getUnlockValue());
-        unlockedCard(
+    public void unlockPurchaseCard(UnlockPurchaseCardCommand unlockPurchaseCardCommand, KenanService kenanService){
+        this.unlockCard = unlockPurchaseCardCommand.getUnlockValue();
+        kenanService.unlockPurchaseCard(unlockPurchaseCardCommand.getPurchaseCardId(), unlockPurchaseCardCommand.getUnlockValue());
+        unlockedPurchaseCard(
                 UnlockedCardEvent
                         .builder()
-                        .purchaseCardId(unlockCardCommand.getPurchaseCardId())
-                        .unlockCard(unlockCardCommand.getUnlockValue()).build()
+                        .purchaseCardId(unlockPurchaseCardCommand.getPurchaseCardId())
+                        .unlockCard(unlockPurchaseCardCommand.getUnlockValue()).build()
         );
+    }
+
+    public void extractPurchaseCard(ExtractPurchaseCardCommand extractPurchaseCardCommand, KenanService kenanService){
+        kenanService.extractPurchaseCard(extractPurchaseCardCommand.getPurchaseCardId(), extractPurchaseCardCommand.getDays());
     }
 
 }

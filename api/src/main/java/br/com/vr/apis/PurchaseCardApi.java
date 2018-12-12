@@ -1,8 +1,10 @@
 package br.com.vr.apis;
 
 import br.com.vr.apis.requests.CreatePurchaseCardRequest;
-import br.com.vr.apis.requests.UnlockCardRequest;
+import br.com.vr.apis.requests.ExtractPurchaseCardRequest;
+import br.com.vr.apis.requests.UnlockPurchaseCardRequest;
 import br.com.vr.apis.responses.CreatePurchaseCardResponse;
+import br.com.vr.apis.responses.ExtractPurchaseCardResponse;
 import br.com.vr.apis.responses.UnlockCardResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +26,14 @@ public interface PurchaseCardApi {
             value = "/unlock",
             method = RequestMethod.POST
     )
-    UnlockCardResponse unlockCard(@RequestBody @Valid UnlockCardRequest unlockCardRequest) throws Exception;
+    UnlockCardResponse unlockPurchaseCard(@RequestBody @Valid UnlockPurchaseCardRequest unlockPurchaseCardRequest) throws Exception;
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @RequestMapping(
+            value = "/extract",
+            method = RequestMethod.POST
+    )
+    ExtractPurchaseCardResponse extractPurchaseCard(@RequestBody @Valid ExtractPurchaseCardRequest extractPurchaseCardRequest) throws Exception;
 
 }

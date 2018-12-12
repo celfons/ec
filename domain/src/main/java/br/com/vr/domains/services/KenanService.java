@@ -1,5 +1,9 @@
 package br.com.vr.domains.services;
 
 public interface KenanService {
-    void unlockCard(Boolean value);
+
+    void unlockPurchaseCard(String purchaseCardId, Boolean value);
+
+    void extractPurchaseCard(String purchaseCardId, Integer days);
+
 }

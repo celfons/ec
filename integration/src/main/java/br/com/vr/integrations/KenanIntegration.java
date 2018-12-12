@@ -31,8 +31,13 @@ public class KenanIntegration implements KenanService {
     }
 
     @Override
-    public void unlockCard(Boolean value){
-        kenan.unlockCard(value);
+    public void unlockPurchaseCard(String purchaseCardId, Boolean value){
+        kenan.unlockPurchaseCard(purchaseCardId, value);
+    }
+
+    @Override
+    public void extractPurchaseCard(String purchaseCardId, Integer days) {
+        kenan.extractPurchaseCard(purchaseCardId, days);
     }
 
 }

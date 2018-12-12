@@ -6,10 +6,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class UnlockCardRequest {
+public class ExtractPurchaseCardRequest {
 
     @JsonProperty("purchaseCardId") private String purchaseCardId;
 
-    @JsonProperty("unlockValue") private Boolean unlockValue;
+    @JsonProperty("days") private Integer days;
 
 }

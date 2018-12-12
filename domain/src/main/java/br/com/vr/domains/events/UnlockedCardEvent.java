@@ -18,7 +18,7 @@ public class UnlockedCardEvent implements PurchaseCardEvents {
     @DynamoDBAttribute(attributeName = "purchaseCardId")
     private String purchaseCardId;
 
-    @DynamoDBAttribute(attributeName = "unlockCard")
+    @DynamoDBAttribute(attributeName = "unlockPurchaseCard")
     private Boolean unlockCard;
 
 }
