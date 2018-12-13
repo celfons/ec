@@ -34,15 +34,14 @@ class PurchaseCardController implements PurchaseCardApi {
                 .pat(createPurchaseCardRequest.getPat())
                 .build();
         PurchaseCard purchaseCard = purchaseCardCommandHandler.handler(createPurchaseCardCommand);
-        return CreatePurchaseCardResponse
-                .builder()
-                .purchaseCardId(purchaseCard.getPurchaseCardId())
-                .cnpj(purchaseCard.getCnpj())
-                .purchaseCardType(purchaseCard.getPurchaseCardType())
-                .cashBack(purchaseCard.getCashBack())
-                .category(purchaseCard.getCategory())
-                .pat(purchaseCard.getPat())
-                .build();
+        return new CreatePurchaseCardResponse(
+                purchaseCard.getPurchaseCardId(),
+                purchaseCard.getCnpj(),
+                purchaseCard.getPurchaseCardType(),
+                purchaseCard.getCategory(),
+                purchaseCard.getCashBack(),
+                purchaseCard.getPat()
+        );
     }
 
     @Override
@@ -53,26 +52,18 @@ class PurchaseCardController implements PurchaseCardApi {
                 .unlockValue(unlockPurchaseCardRequest.getUnlockValue())
                 .build();
         PurchaseCard purchaseCard = purchaseCardCommandHandler.handler(unlockPurchaseCardCommand);
-        return UnlockCardResponse
-                .builder()
-                .purchaseCardId(purchaseCard.getPurchaseCardId())
-                .unlockValue(purchaseCard.getUnlockCard())
-                .build();
+        return new UnlockCardResponse(purchaseCard.getPurchaseCardId(), purchaseCard.getUnlockCard());
     }
 
     @Override
-    public ExtractPurchaseCardResponse extractPurchaseCard(@Valid ExtractPurchaseCardRequest extractPurchaseCardRequest) throws Exception {
+    public ExtractPurchaseCardResponse extractPurchaseCard(@Valid ExtractPurchaseCardRequest extractPurchaseCardRequest) {
         ExtractPurchaseCardCommand extractPurchaseCardCommand = ExtractPurchaseCardCommand
                 .builder()
                 .purchaseCardId(extractPurchaseCardRequest.getPurchaseCardId())
                 .days(extractPurchaseCardRequest.getDays())
                 .build();
         purchaseCardCommandHandler.handler(extractPurchaseCardCommand);
-        return ExtractPurchaseCardResponse
-                .builder()
-                .purchaseCardId(extractPurchaseCardRequest.getPurchaseCardId())
-                .days(extractPurchaseCardRequest.getDays())
-                .build();
+        return new ExtractPurchaseCardResponse(extractPurchaseCardRequest.getPurchaseCardId(), extractPurchaseCardRequest.getDays());
     }
 
 }
