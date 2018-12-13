@@ -1,6 +1,6 @@
 package br.com.vr.domains.commands.handlers;
 
-import br.com.vr.domains.*;
+import br.com.vr.domains.PurchaseCard;
 import br.com.vr.domains.commands.CreatePurchaseCardCommand;
 import br.com.vr.domains.commands.ExtractPurchaseCardCommand;
 import br.com.vr.domains.commands.UnlockPurchaseCardCommand;
@@ -8,10 +8,12 @@ import br.com.vr.domains.repository.PurchaseCardRepository;
 import br.com.vr.domains.services.KenanService;
 import br.com.vr.domains.services.RabbitProducerService;
 import br.com.vr.domains.shared.CommandHandler;
+import br.com.vr.infra.exception.PurchaseCardException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 
 @Component
@@ -52,7 +54,9 @@ public class PurchaseCardCommandHandler implements CommandHandler {
     public PurchaseCard handler(UnlockPurchaseCardCommand unlockPurchaseCardCommand) {
         final PurchaseCard purchaseCard;
         LOGGER.info("Unlock Purchase Card!");
-        purchaseCard = repository.findById(unlockPurchaseCardCommand.getPurchaseCardId()).get();
+        purchaseCard = repository.findById(unlockPurchaseCardCommand.getPurchaseCardId()).orElseThrow(()
+               ->  new PurchaseCardException(unlockPurchaseCardCommand.getPurchaseCardId())
+        );
         purchaseCard.unlockPurchaseCard(unlockPurchaseCardCommand, kenanService);
         repository.save(purchaseCard);
         LOGGER.info("Unlocked Purchase Card!");
@@ -62,8 +66,8 @@ public class PurchaseCardCommandHandler implements CommandHandler {
     public PurchaseCard handler(ExtractPurchaseCardCommand extractPurchaseCardCommand) {
         final PurchaseCard purchaseCard;
         LOGGER.info("Extract Purchase Card!");
-        purchaseCard = repository.findById(extractPurchaseCardCommand.getPurchaseCardId()).orElse(
-                new PurchaseCard()
+        purchaseCard = repository.findById(extractPurchaseCardCommand.getPurchaseCardId()).orElseThrow(()
+                ->  new PurchaseCardException(extractPurchaseCardCommand.getPurchaseCardId())
         );
         purchaseCard.extractPurchaseCard(extractPurchaseCardCommand, kenanService);
         LOGGER.info("Extract Purchase Card!");

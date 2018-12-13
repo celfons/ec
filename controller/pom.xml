@@ -39,6 +39,12 @@
 
         <dependency>
             <groupId>vr</groupId>
+            <artifactId>infra</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>vr</groupId>
             <artifactId>repository</artifactId>
             <version>${project.version}</version>
         </dependency>
