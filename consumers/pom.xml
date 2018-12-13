@@ -18,6 +18,16 @@
             <artifactId>domain</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>repository</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>vr</groupId>
+            <artifactId>integration</artifactId>
+        </dependency>
+
     </dependencies>
 
 

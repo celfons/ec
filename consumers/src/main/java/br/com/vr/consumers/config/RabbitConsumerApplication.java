@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableRabbit
+@ComponentScan({"br.com.vr.consumers", "br.com.vr.repositories", "br.com.vr.integrations"})
 public class RabbitConsumerApplication {
 
     @Value("${queue.order.name}")
@@ -22,7 +24,6 @@ public class RabbitConsumerApplication {
         SpringApplication.run(RabbitConsumerApplication.class, args);
         LOGGER.info("Debug Message Logged !!!");
     }
-
     @Bean
     public Queue queue() {
         return new Queue(orderQueue, true);
