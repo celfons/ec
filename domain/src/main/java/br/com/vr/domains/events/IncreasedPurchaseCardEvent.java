@@ -4,15 +4,22 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @DynamoDBDocument
-public class UnlockedCardEvent implements PurchaseCardEvents {
+public class IncreasedPurchaseCardEvent implements PurchaseCardEvents {
 
     private String purchaseCardId;
 
-    private Boolean unlockCard;
+    private Double value;
+
+    private String cnpj;
+
+    private DateTime dateTransaction;
+
+    private String transactionType;
 
 }

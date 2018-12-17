@@ -24,6 +24,7 @@ public class RabbitConsumerApplication {
         SpringApplication.run(RabbitConsumerApplication.class, args);
         LOGGER.info("Debug Message Logged !!!");
     }
+
     @Bean
     public Queue queue() {
         return new Queue(orderQueue, true);

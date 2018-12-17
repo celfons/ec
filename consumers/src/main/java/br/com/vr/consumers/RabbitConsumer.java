@@ -1,7 +1,7 @@
 package br.com.vr.consumers;
 
 import br.com.vr.consumers.handler.RabbitConsumerCommandHandler;
-import br.com.vr.domains.commands.UnlockPurchaseCardCommand;
+import br.com.vr.domains.commands.IncreasePurchaseCardCommand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -20,11 +20,11 @@ public class RabbitConsumer {
     @RabbitListener(queues = {"${queue.order.name}"})
     public void receive(@Payload String purchaseCardId) {
         LOGGER.info("Consumed message");
-        UnlockPurchaseCardCommand unlockPurchaseCardCommand = UnlockPurchaseCardCommand
+        IncreasePurchaseCardCommand increasePurchaseCardCommand = IncreasePurchaseCardCommand
                 .builder()
                 .purchaseCardId(purchaseCardId)
-                .unlockValue(false)
+                .value(10.00)
                 .build();
-        rabbitConsumerCommandHandler.handler(unlockPurchaseCardCommand);
+        rabbitConsumerCommandHandler.handler(increasePurchaseCardCommand);
     }
 }
