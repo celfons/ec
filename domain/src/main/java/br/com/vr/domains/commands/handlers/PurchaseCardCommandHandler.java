@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 
@@ -30,6 +31,7 @@ public class PurchaseCardCommandHandler implements CommandHandler {
 
     private static final Logger LOGGER = LogManager.getLogger(PurchaseCardCommandHandler.class.getName());
 
+    @Transactional
     public PurchaseCard handler(CreatePurchaseCardCommand createPurchaseCardCommand) {
         final PurchaseCard purchaseCard;
         LOGGER.info("Create Purchase Card!");
@@ -51,6 +53,7 @@ public class PurchaseCardCommandHandler implements CommandHandler {
         return purchaseCard;
     }
 
+    @Transactional
     public PurchaseCard handler(UnlockPurchaseCardCommand unlockPurchaseCardCommand) {
         final PurchaseCard purchaseCard;
         LOGGER.info("Unlock Purchase Card!");
